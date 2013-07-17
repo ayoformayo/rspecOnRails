@@ -29,6 +29,7 @@ class Admin::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
+    #@post.update(params[:post])
   end
 
   def update
@@ -42,10 +43,11 @@ class Admin::PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:destroy])
+    post = Post.find(params[:id])
+
     post.destroy
 
-    redirect_to admin_posts_url
+    redirect_to admin_posts_path
   end
 
   private
